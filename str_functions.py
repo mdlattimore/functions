@@ -18,7 +18,8 @@ def reverse_type(text: str):
 def scramble_text(text: str):
     """Scrambles given text and returns scrambled string. If function is copy/pasted into main program,
     remove import random function."""
-    import random  # remove if you copy/past function into main program then import at top of module
+    import random  # remove if you copy/paste function into main program
+    # then import at top of module
     length = len(text)
     scrambled_string = random.sample(text, k=length)
     scrambled_text = ""
