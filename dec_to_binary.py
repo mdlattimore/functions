@@ -10,6 +10,7 @@ def dec_convert(number):
 
 if __name__ == "__main__":
 
+    # input validation
     while True:
         try:
             num = int(input("Please enter a base 10 number: "))
