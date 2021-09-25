@@ -1,3 +1,4 @@
+# TODO input validation, account for float approximations
 
 import tkinter as tk
 from tkinter import ttk
