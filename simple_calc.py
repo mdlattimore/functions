@@ -38,7 +38,9 @@ def dec_convert():
     number = entry_value.get()
     entry_value.set(str(bin(number)[2:]))
 
-
+def clear():
+    entry_field.delete(0, tk.END)
+    entry_field.focus()
 
 root = tk.Tk()
 root.title("Simple Calculator")
@@ -49,7 +51,7 @@ mainframe.grid(row=0, column=0, sticky="nsew", padx=10, pady=10)
 entry_value = tk.IntVar()
 entry_value.set('')
 entry_field = ttk.Entry(mainframe, width=20, textvariable=entry_value)
-entry_field.grid(row=0, column=0, columnspan=2, ipadx=10, ipady=10)
+entry_field.grid(row=0, column=0, columnspan=2)
 entry_field.focus()
 
 button_frame = ttk.Frame(mainframe)
@@ -66,5 +68,7 @@ bin_to_dec = ttk.Button(button_frame, text="bin -> dec", command=bin_convert)
 bin_to_dec.grid(row=2, column=0, sticky="ew")
 dec_to_bin = ttk.Button(button_frame, text="dec -> bin", command=dec_convert)
 dec_to_bin.grid(row=2, column=1, sticky="ew")
+clear_button = ttk.Button(button_frame, text="Reset", command=clear)
+clear_button.grid(row=3, column=0, columnspan=2)
 
 root.mainloop()
