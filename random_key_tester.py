@@ -3,10 +3,13 @@ import os
 import time
 import sys
 
+
 def generate_key(size):
     byte_string = os.urandom(size)
     key = b64encode(byte_string).decode('utf-8')
     return key
+
+    
 key_size = 6
 final = []
 keys = []
