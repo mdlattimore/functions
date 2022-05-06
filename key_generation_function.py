@@ -7,3 +7,8 @@ def generate_key(size):
     key = b64encode(byte_string).decode('utf-8')
     return key
 
+
+if __name__ == "__main__":
+
+    result = generate_key(33)
+    print(result)

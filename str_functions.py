@@ -28,6 +28,7 @@ def scramble_text(text: str):
     return scrambled_text
 
 
+
 def remove_vowels(text: str):
     """Removes vowels from text and returns vowel-less string"""
     vowels = ['a', 'e', 'i', 'o', 'u']
@@ -48,6 +49,23 @@ def letter_skip(text: str, interval: int):
         new_text += char
     return new_text
 
+def strip_punct(text: str):
+    """Strips punctuation from string. Useful for word frequency analysis. Requires import of string module"""
+    from string import whitespace
+    processed_text = ""
+    for char in text:
+        char.replace("-", " ")
+        if char.isalnum() or char in whitespace:
+            processed_text += char   
+    return processed_text
+
 
 if __name__ == "__main__":
-    pass
+    with open('romeo_and_juliet.txt', mode="r") as file:
+        text = file.read()
+        
+    processed = (strip_punct(text))
+    print(len(processed.split()))
+    set_list = {word.casefold() for word in processed.split()}
+    print(len(set_list))
+    
