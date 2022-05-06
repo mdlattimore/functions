@@ -1,4 +1,7 @@
 # A Collection of Useful(ish) Functions
+This is a collection of functions I created when first learning Python, 
+simply as an exercise to test my understanding of the underlying skills. 
+They are basically useless but still fun little exercises.
 
 ## binary_to_dec.py
 Converts user input binary number to base 10
