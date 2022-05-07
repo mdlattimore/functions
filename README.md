@@ -34,8 +34,8 @@ volume of a cube, volume of a sphere, and the hypotenuse of a right
 triangle.
 
 ## simple_calc.py
-Currently inoperative gui calculator for calculating various 
-values and conversions. It remains in the repo pending revisions.
+A very limited gui calculator. It isn't a typical 0-9, 4 function calculator.
+Rather, it performs limited, specific calculations on user input.
 
 ## str_functions.py
 A collection of functions used for manipulating strings. See the docstring
