@@ -52,9 +52,11 @@ def letter_skip(text: str, interval: int):
 def strip_punct(text: str):
     """Strips punctuation from string. Useful for word frequency analysis. Requires import of string module"""
     from string import whitespace
+    text = text.replace("\n", " ")
+    # Uncomment following line to count each part of a hyphenated word as a separate word. Otherwise, a hypenated word is considered a single word
+    # text = text.replace("-", " ")
     processed_text = ""
     for char in text:
-        char.replace("-", " ")
         if char.isalnum() or char in whitespace:
             processed_text += char   
     return processed_text
