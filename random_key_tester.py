@@ -38,11 +38,12 @@ with console.status("Working ... \n"):
     stop = time.perf_counter()
 
 #print(keys) USE ONLY FOR TESTING
+time = stop - start
 print()
 print(f"The {len(keys)} st/nd/th key was a duplicate")
 print(f"You produced {len(keys_set)} unique keys.")
 print(f"The duplicated key was {final[0]}")
-print(f"Time: {stop - start} seconds")
+print(f"Time: {time} seconds")
 print()
     
-
+# TODO Set up to run n times, store the times and average them.
