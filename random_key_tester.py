@@ -1,3 +1,5 @@
+"""Generates random byte strings of 'n' bytes (user input) and then runs the key generation function on a loop until it generates a collision"""
+
 from base64 import b64encode
 import os
 import time
@@ -13,7 +15,8 @@ def generate_key(size):
     return key
 
     
-key_size = 6
+print("Enter key_size (in bytes). Keys larger than 8 bytes may take an extraordinarily long time to test.")
+key_size = int(input("> "))
 final = []
 keys = []
 keys_set = set()
@@ -40,9 +43,12 @@ with console.status("Working ... \n"):
 #print(keys) USE ONLY FOR TESTING
 time = stop - start
 print()
-print(f"The {len(keys)} st/nd/th key was a duplicate")
+print(f"The key was {key}")
+print(f"The duplicated key was {final[0]} (these two must match)")
+print(f"The duplicated key was first generated at: {keys.index(key)}")
+print(f"The key at index position {len(keys)} was a duplicate")
+print(f"The duplicate keys were {(len(keys)) - (keys.index(key))} apart")
 print(f"You produced {len(keys_set)} unique keys.")
-print(f"The duplicated key was {final[0]}")
 print(f"Time: {time} seconds")
 print()
     

@@ -35,5 +35,6 @@ def hypotenuse_triangle(a: float, b: float):
     return c
 
 
+
 if __name__ == "__main__":
     pass

@@ -1,4 +1,4 @@
-def teletype(text: str, interval: float):
+def teletype(text: str, interval: float = .07):
     """ Prints text one letter at a time with 'interval' seconds between letters
     using a 'for loop.'
     Requires import of time module.
