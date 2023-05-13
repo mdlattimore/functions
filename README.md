@@ -1,46 +1,60 @@
-# A Collection of Useful(ish) Functions
+# A Collection of Useful(ish) Functions and Code Snippets
 This is a collection of functions I created when first learning Python, 
 simply as an exercise to test my understanding of the underlying skills. 
 They are basically useless but still fun little exercises.
 
-## binary_to_dec.py
-Converts user input binary number to base 10
+## Binary to Decimal Converter
+```python
+def bin_convert(num):
+    """Convert binary input to base 10 representation. No input validation
+    is baked into the function. Input validation should be handled within
+    calling script. For an example, see code below if __name__ == '__main__'
+    in this script"""
 
-## countdown.py
-A no-frills countdown timer. Starting time is currently hard-coded 
-at 10 seconds. Feel free to modify
+    bin_num = [char for char in num][::-1]
+    result = []
+    for index, digit in enumerate(bin_num):
+        x = int(digit) * (2 ** index)
+        result.append(x)
 
-## dec_to_binary.py
-Converts user input base 10 number to binary.
+    return sum(result)
+```
 
-## key_gen.py
-Produces a pseudo-random key using the os module's urandom function,
-and saves the key as a text file in the working directory.
-DO NOT use for creating encryption keys. This function was originally
-written to support the random_key_tester.py file which measures how 
-long it takes to generate a key collision of n length keys.
+## Decimal to Binary Converter
+```python
+def dec_convert(number):
+    """Returns binary representation of positive base 10 integer as a
+    string without the 0b prefix used by Python to designate a binary
+    number. No input validation is baked into the function. Input validation
+    should be handled within calling script. For an example, see code below
+    if __name__ == '__main__' in this script"""
 
-## key_generation_function.py
-The function underlying key_gen.py
+    return str(bin(number)[2:])
+```
 
-## random_key_tester.py
-A short program that measures the time it takes to generate a key
-collision of n length using the key_generation_function in this repo.
+## Random Key Generation
+```python
+""" Function that generates random bytes of given size and then converts to string """
 
-## math_functions.py
-A collection of mostly unnecessary math functions. Functions for
-calculating area of a circle, area of a triangle, area of a rectangle,
-volume of a cube, volume of a sphere, and the hypotenuse of a right
-triangle.
+def generate_key(size):
+    import os
+    from base64 import b64encode
+    byte_string = os.urandom(size)
+    key = b64encode(byte_string).decode('utf-8')
+    return key
+```
 
-## simple_calc.py
-A very limited gui calculator. It isn't a typical 0-9, 4 function calculator.
-Rather, it performs limited, specific calculations on user input.
+## Center a tkinter root or toplevel window on screen
+```python
+def center_screen(root, width, height):
+    screen_width = root.winfo_screenwidth()
+    screen_height = root.winfo_screenheight()
+    x = (screen_width / 2) - (width / 2)
+    y = (screen_height / 2) - (height / 2)
+    return "%dx%d+%d+%d" % (width, height, x, y)
+```
 
-## str_functions.py
-A collection of functions used for manipulating strings. See the docstring
-for each function for its operation
+## Math Functions  
 
-## teletype.py
-Prints text one letter at a time with n seconds between letters
-using a for loop. Designed to resemble old style teletype machines
+
+
