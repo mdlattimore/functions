@@ -8,14 +8,21 @@ from rich.console import Console
 
 console = Console()
 
+def clear():
+    if os.name == "nt":
+        os.system("cls")
+    else:
+        os.system("clear")
+
 
 def generate_key(size):
     byte_string = os.urandom(size)
     key = b64encode(byte_string).decode('utf-8')
     return key
 
+clear()
     
-print("Enter key_size (in bytes). Keys larger than 8 bytes may take an extraordinarily long time to test.")
+print("Enter key_size (in bytes). Keys larger than 6 bytes may take an extraordinarily long time to test.")
 key_size = int(input("> "))
 final = []
 keys = []
